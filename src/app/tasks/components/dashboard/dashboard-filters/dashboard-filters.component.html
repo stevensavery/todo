@@ -1,0 +1,7 @@
+<mat-toolbar>
+  <input #input type="text" (keyup)="filterData(input.value);" placeholder="Search" />
+  <button mat-raised-button color="primary" (click)="sortData();">
+    Sort
+    <mat-icon>{{ getSortIcon() }}</mat-icon>
+  </button>
+</mat-toolbar>

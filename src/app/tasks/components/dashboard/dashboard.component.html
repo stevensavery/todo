@@ -1,0 +1,10 @@
+<stevensavery-todo-dashboard-filters
+  [sortDirection]="sort"
+  (search)="searchTasks($event);"
+  (sort)="sortTasks($event)">
+</stevensavery-todo-dashboard-filters>
+<stevensavery-todo-dashboard-list
+  [search]="search"
+  [sort]="sort"
+  [tasks]="tasks">
+</stevensavery-todo-dashboard-list>

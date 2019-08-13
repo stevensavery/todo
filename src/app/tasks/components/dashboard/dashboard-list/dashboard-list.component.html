@@ -1,0 +1,26 @@
+<mat-list>
+  <mat-list-item>
+    <mat-icon mat-list-icon>add</mat-icon>
+    <p><input #input type="text" placeholder="Add tasks here!" (keyup.enter)="addTask(input.value);" /></p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item
+    [ngClass]="{ complete: (task.status === Status.Complete) }"
+    *ngFor="let task of tasks | filter: search | sort : sort">
+      <mat-icon mat-list-icon>
+        {{ getIcon(task.status) }}
+      </mat-icon>
+      <p mat-line>
+        #{{ task.id + ' - ' + task.description }}
+      </p>
+      <button
+        *ngIf="task.status !== Status.Complete"
+        class="btn-complete"
+        mat-stroked-button color="primary"
+        (click)="completeTask(task.id);">Complete</button>
+      <button
+        mat-raised-button color="warn"
+        (click)="deleteTask(task.id);">Delete</button>
+      <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
